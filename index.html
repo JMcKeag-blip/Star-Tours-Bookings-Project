@@ -19,7 +19,7 @@
     <body>
         <canvas id="starField"></canvas>
         <h1>Star Tours Bookings & Vacations</h1>
-        <h3>Welcome to your next out ofthis world vacation</h3>
+        <h3>Welcome to your next out of this world vacation</h3>
         <p>
             Welcome to Star Tours! Our world class operating system will allow you to filter planets in the galaxy
             by many different features, such as Climate, Terrain, Population size, and even alphabetically if you
@@ -29,5 +29,22 @@
             the queue. Our website should show you an increased bookings number when you click the button. Now you
             are all set for your next vacation amongst the stars!
         </p>
+        <form id="search-form">
+            <label id="search-planets">Search Planets</label>
+            <input id="input-text-field" type="text" placeholder="Planet Name, first letter, 
+            or leave empty to show all planets"/>
+            <input id="search-button" type="submit" value="Search"/>
+        </form>
+
+        <h2 id="destinations">
+            Selected planets
+        </h2>
+        <grid id="planets-field">
+            <!-- Area for selected planetss -->
+        </grid>
+
+        <grid id="planet-cards">
+            <!-- Area for initial planets to load in -->
+        </grid>
     </body>
-                
+</html>            

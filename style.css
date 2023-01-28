@@ -9,6 +9,28 @@ h1 {
     margin-left: 10px;
     margin-right: 10px;
 }
+h2 {
+    font-weight: bold;
+    font-variant: small-caps;
+    text-align: center;
+    margin-top: 10px;
+}
+#planets-field {
+    border-bottom: 5px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-style: solid;
+    border-color: goldenrod;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#destinations {
+    color: black;
+}
 h3 {
     text-align: center;
     color: goldenrod;
