@@ -13,15 +13,11 @@ h3 {
     text-align: center;
     color: goldenrod;
 }
-body {
-    background-repeat: no-repeat;
-    background-size: 1600px 1300px;
-    background-image: 
-    url(https://img.freepik.com/free-photo/3d-hyperspace-background-with-warp-tunnel-effect_1048-12526.jpg?w=900&t=st=1674925173~exp=1674925773~hmac=e8d445ead749ba53b4959b1befddca499e0ed3e963902385e22d83f498503481);
-    background-position: center;
-}
+canvas {
+    background: radial-gradient(ellipse at center, #242938, #000 100%);
+  }
 p {
-    background-color: blue;
+    background-color: black;
     color: goldenrod;
     text-align: center;
     margin-bottom: 10px;

@@ -1,0 +1,1 @@
+Credit for the lines of code to create the animated background goes to cssscript.com (https://www.cssscript.com/animated-starfield-effect/)
