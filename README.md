@@ -1,1 +1,2 @@
-Credit for the lines of code to create the animated background goes to cssscript.com (https://www.cssscript.com/animated-starfield-effect/)
+Credit for the Star Wars API goes to swapi.dev
+Credit for the lines of code to create the animated background goes to author Ashikpaul on cssscript.com (https://www.cssscript.com/animated-starfield-effect/)

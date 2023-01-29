@@ -9,6 +9,14 @@ initialPlanetFetch()
 // Global Event listeners
 form.addEventListener('submit', (e) => planetSearch(e))
 
+// CREATION FUNCTION ------------------------------------------------------------------------------
+// Creates all the monster cards based off of information from the initial fetch request
+function displayPlanets(planet){
+    // Monster Name
+    const h2 = document.createElement('h2')
+    h2.innerText = planet.name
+}
+// Planet Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
     function planetSearch(e){
         e.preventDefault()
         const planetHeader = document.getElementById('planet-cards').querySelectorAll('div')
