@@ -4,56 +4,64 @@ const planetInfo = document.getElementById('planet-cards')
 const form = document.getElementById('search-form')
 
 // Page initial Fetch for loading Planet Cards
-initialPlanetFetch()
+initialPlanetsFetch()
 
 // Global Event listeners
-form.addEventListener('submit', (e) => planetSearch(e))
+form.addEventListener('submit', (e) => planetsSearch(e))
 
 // CREATION FUNCTION ------------------------------------------------------------------------------
 // Creates all the planet cards based off of information from the initial fetch request
-function displayPlanets(planet){
-    // Planet Name
+function displayPlanets(planets){
+    // Planets Name
     const h2 = document.createElement('h2')
-    h2.innerText = planet.name
+    h2.innerText = planets.name
 
-     // Planet Climate
+     // Planets Climate
      const p = document.createElement('p')
-     p.innerText = 'Climate: ' + planet.climate
+     p.innerText = 'Climate: ' + planets.climate
  
      // Population Size
      const p2 = document.createElement('p')
-     p2.innerText = 'Population: ' + planet.population
+     p2.innerText = 'Population: ' + planets.population
  
-     // Planet Terrain Type
+     // Planets Terrain Type
      const p3 = document.createElement('p')
-     p3.innerText = 'Terrain: ' + planet.terrain
+     p3.innerText = 'Terrain: ' + planets.terrain
+
+     // Planets Surface Water (need good beaches for vacation)
+    const h4 = document.createElement('h4')
+    h4.innerText = 'Planets Surface bodies of water: ' + planets.surface_water
+
+    // Button Span
+    const btnSpan2 = document.createElement('span')
+    btnSpan2.classList = `${planets.name} buttons`
 }
-// Planet Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
-    function planetSearch(e){
+// Planets Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
+    function planetsSearch(e){
         e.preventDefault()
-        const planetHeader = document.getElementById('planet-cards').querySelectorAll('div')
-        planetHeader.forEach(planet => {
+        const planetsHeader = document.getElementById('planets-cards').querySelectorAll('div')
+        planetsHeader.forEach(planet => {
             const input = formInput.value.toUpperCase()
             if(input === ''){
-                planet.hidden = false
+                planets.hidden = false
             }
             if(input.length === 1){
-                input !== planet.id.charAt(0) ? planet.hidden = true: planet.hidden = false
+                input !== planet.id.charAt(0) ? planets.hidden = true: planets.hidden = false
             }
             if(input.length > 1){
-                input !== planet.id.toUpperCase() ? planet.hidden = true : planet.hidden = false
+                input !== planet.id.toUpperCase() ? planets.hidden = true : planets.hidden = false
             }
         })
     }
 
 // Fetch Functions For getting all the API Information for the planets
-function initialPlanetFetch(){
+function initialPlanetsFetch(){
     return fetch('https://swapi.dev/api/planets')
     .then(resp => resp.json())
     .then(data => {
-        const planetArray = data.results
-        planetArray.forEach(planet => {
-            singlePlanetFetch(`${planet.url}`)
+        const planetsArray = data.results
+        planetsArray.forEach(planets => {
+            singlePlanetFetch(`${planets.url}`)
         })
     })
     .catch(err => console.log(err))
