@@ -35,6 +35,20 @@ function displayPlanets(planets){
     // Button Span
     const btnSpan2 = document.createElement('span')
     btnSpan2.classList = `${planets.name} buttons`
+
+    // Creates Add Button & Event Listeners
+    const btn2 = document.createElement('button')
+    btn2.innerText = 'Add Planets'
+    btn2.classList = 'add-btn'
+    btn2.addEventListener('click', (e) => addCopyOfPlanetsToSelection(e))
+    btn2.addEventListener('mouseover', (e) => changeColor(e))
+    btn2.addEventListener('mouseleave', (e) => changeColorBack(e))
+    btnSpan2.append(btn2)
+
+    // Div Creation
+    const div = document.createElement('div')
+    div.id = `${planets.name}`
+
 }
 // Planets Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
     function planetsSearch(e){
