@@ -83,6 +83,19 @@ function addCopyOfPlanetsToSelection(thisPlanets){
     const btnSpan = planetsClone.querySelector('span')
     const btn = document.createElement('button')
 
+    // Creates Remove Button & Event Listeners
+    btn.innerText = 'Remove Planets'
+    btn.className = 'remove-btn'
+    btn.addEventListener('click', (e) => deletePlanets(e))
+    btn.addEventListener('mouseover', (e) => changeColor(e))
+    btn.addEventListener('mouseleave', (e) => changeColorBack(e))
+
+    // Appending
+    btnSpan.append(btn)
+    planetsClone.append(btnSpan)
+    newLocation.appendChild(planetsClone)
+}
+
 
 // Planets Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
     function planetsSearch(e){
@@ -103,25 +116,27 @@ function addCopyOfPlanetsToSelection(thisPlanets){
     }
 
 // Fetch Functions For getting all the API Information for the planets
-function initialPlanetsFetch(){
-    return fetch('https://swapi.dev/api/planets')
-    .then(resp => resp.json())
-    .then(data => {
+async function initialPlanetsFetch(){
+    try {
+        const resp = await fetch('https://swapi.dev/api/planets/')
+        const data = await resp.json()
         const planetsArray = data.results
         planetsArray.forEach(planets => {
             singlePlanetsFetch(`${planets.url}`)
         })
-    })
-    .catch(err => console.log(err))
+    } catch (err) {
+        return console.log(err)
+    }
 }
 
-function singlePlanetsFetch(URL){
-    return fetch(`https://swapi.dev/api/${URL}`)
-    .then(resp => resp.json())
-    .then(data => {
-       displayPlanets(data)
-    })
-    .catch(err => console.log(err))
+async function singlePlanetsFetch(URL){
+    try {
+        const resp = await fetch(`https://swapi.dev/api/${URL}`)
+        const data = await resp.json()
+        displayPlanets(data)
+    } catch (err) {
+        return console.log(err)
+    }
 }
 
 //animated background code
