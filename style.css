@@ -29,7 +29,7 @@ h2 {
     padding-right: 20px;
 }
 #destinations {
-    color: black;
+    color: goldenrod;
 }
 h3 {
     text-align: center;
@@ -46,4 +46,26 @@ p {
     margin-top: 10px;
     margin-left: 200px;
     margin-right: 200px;
+}
+h4 {
+    font-variant: small-caps;
+    text-align: center;
+}
+body {
+    margin: 0px;
+}
+grid {
+    margin: 20px;
+    display: grid;
+    /* grid templet to create the auto adjusting card sizes */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(250px, auto);
+    grid-gap: 20px;
+}
+div {
+    border-color: black;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: rgb(255, 248, 239);
+    box-shadow: 0 0 5px black;
 }
