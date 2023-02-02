@@ -116,27 +116,25 @@ function addCopyOfPlanetsToSelection(thisPlanets){
     }
 
 // Fetch Functions For getting all the API Information for the planets
-async function initialPlanetsFetch(){
-    try {
-        const resp = await fetch('https://swapi.dev/api/planets/')
-        const data = await resp.json()
+function initialPlanetsFetch(){
+    return fetch('https://swapi.dev/api/planets/')
+    .then(resp => resp.json())
+    .then(data => {
         const planetsArray = data.results
         planetsArray.forEach(planets => {
             singlePlanetsFetch(`${planets.url}`)
         })
-    } catch (err) {
-        return console.log(err)
-    }
+    })
+    .catch(err => console.log(err))
 }
 
-async function singlePlanetsFetch(URL){
-    try {
-        const resp = await fetch(`https://swapi.dev/api/${URL}`)
-        const data = await resp.json()
-        displayPlanets(data)
-    } catch (err) {
-        return console.log(err)
-    }
+function singlePlanetsFetch(URL){
+    return fetch(`https://swapi.dev/api/${URL}`)
+    .then(resp => resp.json())
+    .then(data => {
+       displayPlanets(data)
+    })
+    .catch(err => console.log(err))
 }
 
 //animated background code
