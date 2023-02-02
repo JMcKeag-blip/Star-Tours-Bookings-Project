@@ -61,6 +61,29 @@ function displayPlanets(planets){
 }
 // END OF CREATION FUNCTION
 
+// Functions
+// Deletes Planets from the Selected Planets area
+function deletePlanets(e){
+    const selected = e.target.parentNode.parentNode
+    selected.remove()
+}
+
+// Adds a copy of the selected palnets to the Selected Planets Area
+// Also adds the Event Listeners for the Remove Monster button
+function addCopyOfPlanetsToSelection(thisPlanets){
+    const newLocation = document.getElementById('planets-field')
+    const planetsClone = thisPlanets.target.parentNode.parentNode.cloneNode(true)
+
+    // Adding Class, Removing id, Removing Add Button
+    planetsClone.classList.add('selected-planets')
+    planetsClone.removeAttribute('id')
+    planetsClone.querySelector('span').children[0].remove()
+
+    // Creates new span for moving button with CSS
+    const btnSpan = planetsClone.querySelector('span')
+    const btn = document.createElement('button')
+
+
 // Planets Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
     function planetsSearch(e){
         e.preventDefault()
@@ -86,13 +109,13 @@ function initialPlanetsFetch(){
     .then(data => {
         const planetsArray = data.results
         planetsArray.forEach(planets => {
-            singlePlanetFetch(`${planets.url}`)
+            singlePlanetsFetch(`${planets.url}`)
         })
     })
     .catch(err => console.log(err))
 }
 
-function singlePlanetFetch(URL){
+function singlePlanetsFetch(URL){
     return fetch(`https://swapi.dev/api/${URL}`)
     .then(resp => resp.json())
     .then(data => {
