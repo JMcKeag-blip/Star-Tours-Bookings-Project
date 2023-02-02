@@ -69,3 +69,39 @@ div {
     background-color: rgb(255, 248, 239);
     box-shadow: 0 0 5px black;
 }
+planets-cards > div:nth-child(even) {
+    background-color: rgb(225, 225, 225);
+}
+.main::first-letter {
+    font-weight: bold;
+    font-size: xx-large;
+}
+.main::first-line {
+    line-height: 99%;
+}
+#main-text {
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+img {
+    width: 100%;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+}
+span {
+    display: flex;
+    justify-content: center;
+}
+button {
+    font-family: serif;
+    font-variant: small-caps;
+    transition: 0.5s;
+    color: black;
+    border-color: black;
+    background-color: transparent;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+    margin: 10px;
+}
