@@ -9,7 +9,7 @@ initialPlanetsFetch()
 // Global Event listeners
 form.addEventListener('submit', (e) => planetsSearch(e))
 
-// CREATION FUNCTION ------------------------------------------------------------------------------
+// CREATION FUNCTION
 // Creates all the planet cards based off of information from the initial fetch request
 function displayPlanets(planets){
     // Planets Name
@@ -49,21 +49,32 @@ function displayPlanets(planets){
     const div = document.createElement('div')
     div.id = `${planets.name}`
 
+    // Image => Only if there is an image provided by the API
+    if(planets.image){
+        const img = document.createElement('img')
+        img.src = `http://swapi.dev${planets.image}`
+        div.append(img)
+    }
+
+    div.append(h2, h4, p, p2, p3, btnSpan2)
+    planetsCards.appendChild(div)
 }
+// END OF CREATION FUNCTION
+
 // Planets Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
     function planetsSearch(e){
         e.preventDefault()
         const planetsHeader = document.getElementById('planets-cards').querySelectorAll('div')
-        planetsHeader.forEach(planet => {
+        planetsHeader.forEach(planets => {
             const input = formInput.value.toUpperCase()
             if(input === ''){
                 planets.hidden = false
             }
             if(input.length === 1){
-                input !== planet.id.charAt(0) ? planets.hidden = true: planets.hidden = false
+                input !== planets.id.charAt(0) ? planets.hidden = true: planets.hidden = false
             }
             if(input.length > 1){
-                input !== planet.id.toUpperCase() ? planets.hidden = true : planets.hidden = false
+                input !== planets.id.toUpperCase() ? planets.hidden = true : planets.hidden = false
             }
         })
     }
@@ -82,7 +93,7 @@ function initialPlanetsFetch(){
 }
 
 function singlePlanetFetch(URL){
-    return fetch(`http swapi.dev/api/${URL}`)
+    return fetch(`https://swapi.dev/api/${URL}`)
     .then(resp => resp.json())
     .then(data => {
        displayPlanets(data)
