@@ -122,16 +122,17 @@ function initialPlanetsFetch(){
     .then(data => {
         const planetsArray = data.results
         planetsArray.forEach(planets => {
-            singlePlanetsFetch(`${planets.url}`)
+            singlePlanetsFetch(planets.url)
         })
     })
     .catch(err => console.log(err))
 }
 
 function singlePlanetsFetch(URL){
-    return fetch(`https://swapi.dev/api/${URL}`)
+    return fetch(URL)
     .then(resp => resp.json())
     .then(data => {
+        console.log(data)
        displayPlanets(data)
     })
     .catch(err => console.log(err))
