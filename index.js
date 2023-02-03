@@ -1,6 +1,6 @@
 // Global Variables
 const formInput = document.getElementById('input-text-field')
-const planetInfo = document.getElementById('planet-cards')
+const planetInfo = document.getElementById('planets-cards')
 const form = document.getElementById('search-form')
 
 // Page initial Fetch for loading Planet Cards
@@ -28,9 +28,9 @@ function displayPlanets(planets){
      const p3 = document.createElement('p')
      p3.innerText = 'Terrain: ' + planets.terrain
 
-     // Planets Surface Water (need good beaches for vacation)
+     // Planets Surface Water as a percentage (need good beaches for a good vacation)
     const h4 = document.createElement('h4')
-    h4.innerText = 'Planets Surface bodies of water: ' + planets.surface_water
+    h4.innerText = 'Surface Water Percentage: ' + planets.surface_water
 
     // Button Span
     const btnSpan2 = document.createElement('span')
@@ -55,9 +55,10 @@ function displayPlanets(planets){
         img.src = `http://swapi.dev${planets.image}`
         div.append(img)
     }
+    //const planetInfo = HTMLElement
 
     div.append(h2, h4, p, p2, p3, btnSpan2)
-    planetsCards.appendChild(div)
+    planetInfo.appendChild(div)
 }
 // END OF CREATION FUNCTION
 
@@ -96,6 +97,25 @@ function addCopyOfPlanetsToSelection(thisPlanets){
     newLocation.appendChild(planetsClone)
 }
 
+// Functions for mouseover & mouseleave Event Listeners
+// Changes the colors of the buttons when the mouse is over
+// Changes the colors of the buttons back when mouse leaves
+function changeColor(btn){
+    if(btn.target.className === 'remove-btn'){
+        btn.target.classList.toggle('red-btn-mouse-over')
+    }
+    if(btn.target.className === 'add-btn'){
+        btn.target.classList.toggle('blue-btn-mouse-over')
+    }
+}
+function changeColorBack(btn){
+    if(btn.target.className === 'remove-btn red-btn-mouse-over'){
+        btn.target.classList.toggle('red-btn-mouse-over')
+    }
+    if(btn.target.className === 'add-btn blue-btn-mouse-over'){
+        btn.target.classList.toggle('blue-btn-mouse-over')
+    }
+}
 
 // Planets Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
     function planetsSearch(e){
