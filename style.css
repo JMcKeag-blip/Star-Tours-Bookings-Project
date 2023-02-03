@@ -97,8 +97,8 @@ button {
     font-family: serif;
     font-variant: small-caps;
     transition: 0.5s;
-    color: goldenrod;
-    border-color: goldenrod;
+    color: black;
+    border-color: white;
     background-color: transparent;
     border-radius: 10px;
     margin: auto;

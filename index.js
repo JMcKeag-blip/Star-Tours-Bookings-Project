@@ -17,15 +17,15 @@ function displayPlanets(planets){
     h2.innerText = planets.name
 
      // Planets Climate
-     const p = document.createElement('p')
+     const p = document.createElement('h4')
      p.innerText = 'Climate: ' + planets.climate
  
      // Population Size
-     const p2 = document.createElement('p')
+     const p2 = document.createElement('h4')
      p2.innerText = 'Population: ' + planets.population
  
      // Planets Terrain Type
-     const p3 = document.createElement('p')
+     const p3 = document.createElement('h4')
      p3.innerText = 'Terrain: ' + planets.terrain
 
      // Planets Surface Water as a percentage (need good beaches for a good vacation)
@@ -48,13 +48,6 @@ function displayPlanets(planets){
     // Div Creation
     const div = document.createElement('div')
     div.id = `${planets.name}`
-
-    // Image => Only if there is an image provided by the API
-    if(planets.image){
-        const img = document.createElement('img')
-        img.src = `http://swapi.dev${planets.image}`
-        div.append(img)
-    }
 
     div.append(h2, h4, p, p2, p3, btnSpan2)
     const planetInfo = document.getElementById("planet-info")
