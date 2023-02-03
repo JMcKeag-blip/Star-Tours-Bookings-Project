@@ -55,9 +55,9 @@ function displayPlanets(planets){
         img.src = `http://swapi.dev${planets.image}`
         div.append(img)
     }
-    //const planetInfo = HTMLElement
 
     div.append(h2, h4, p, p2, p3, btnSpan2)
+    const planetInfo = document.getElementById("planet-info")
     planetInfo.appendChild(div)
 }
 // END OF CREATION FUNCTION
