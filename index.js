@@ -113,7 +113,7 @@ function changeColorBack(btn){
 // Planets Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
     function planetsSearch(e){
         e.preventDefault()
-        const planetsHeader = document.getElementById('planets-cards').querySelectorAll('div')
+        const planetsHeader = document.getElementById('planet-info').querySelectorAll('div')
         planetsHeader.forEach(planets => {
             const input = formInput.value.toUpperCase()
             if(input === ''){
