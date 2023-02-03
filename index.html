@@ -10,7 +10,7 @@
     </head>
     <style>
         canvas{
-            height: 1000px;
+            height: 1500px;
             width: 1520px;
             position: absolute;
             left: 0 ;
@@ -27,9 +27,9 @@
             that you may want to visit for your next vacation destination! Simply search for a planets name in the search bar. 
             Results will appear based on matching planets. Information will be displayed on the Planets such as
             Climate, Terrain, Population size, and Percentage of water on the surface. Once you know where you would 
-            like to fly to, click on the planet, then press the "Book Flight" button and our reservations system will 
-            put you in the queue. Our website should show you an increased bookings number when you click the button. 
-            Now you are all set for your next vacation amongst the stars!
+            like to fly to, click on the Add Planet button, and it will be added to the Itinerary field of the webpage!
+            Now you are all set for your next vacation amongst the stars! If you accidentally booked an incorrect flight,
+            Don't worry, you can always click on the Remove Planets button in the Itinerary field to clear up your schedule!
         </p>
         <form id="search-form">
             <label id="search-planets">Search Planets</label>
@@ -38,7 +38,7 @@
         </form>
 
         <h2 id="destinations">
-            Selected planets
+            Itinerary
         </h2>
         <grid id="planets-field">
             <!-- Area for selected planetss -->

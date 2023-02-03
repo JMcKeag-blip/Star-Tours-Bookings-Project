@@ -57,17 +57,14 @@ body {
 grid {
     margin: 20px;
     display: grid;
-    /* grid templet to create the auto adjusting card sizes */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: minmax(250px, auto);
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows: minmax(125px, auto);
     grid-gap: 20px;
 }
 div {
-    border-color: goldenrod;
-    border-style: solid;
-    border-radius: 20px;
     background-color: goldenrod;
     box-shadow: 0 0 5px gold;
+    line-height: 5px;
 }
 planets-cards > div:nth-child(even) {
     background-color: goldenrod;
@@ -94,13 +91,12 @@ span {
     justify-content: center;
 }
 button {
-    font-family: serif;
+    font-family: 'Death Star';
     font-variant: small-caps;
-    transition: 0.5s;
+    transition: 1s;
     color: black;
     border-color: white;
     background-color: transparent;
-    border-radius: 10px;
     margin: auto;
     text-align: center;
     margin: 10px;
@@ -125,14 +121,14 @@ form {
     width: 50%;
 }
 .red-btn-mouse-over {
-    transition: 0.5s;
+    transition: 1s;
     color: white;
     border-color: red;
     background-color: red;
 }
-.blue-btn-mouse-over {
-    transition: 0.5s;
+.black-btn-mouse-over {
+    transition: 1s;
     color: white;
-    border-color: blue;
-    background-color: blue;
+    border-color: black;
+    background-color: black;
 }

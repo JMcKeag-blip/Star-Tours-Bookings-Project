@@ -99,15 +99,15 @@ function changeColor(btn){
         btn.target.classList.toggle('red-btn-mouse-over')
     }
     if(btn.target.className === 'add-btn'){
-        btn.target.classList.toggle('blue-btn-mouse-over')
+        btn.target.classList.toggle('black-btn-mouse-over')
     }
 }
 function changeColorBack(btn){
     if(btn.target.className === 'remove-btn red-btn-mouse-over'){
         btn.target.classList.toggle('red-btn-mouse-over')
     }
-    if(btn.target.className === 'add-btn blue-btn-mouse-over'){
-        btn.target.classList.toggle('blue-btn-mouse-over')
+    if(btn.target.className === 'add-btn black-btn-mouse-over'){
+        btn.target.classList.toggle('black-btn-mouse-over')
     }
 }
 
