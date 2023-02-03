@@ -1,3 +1,4 @@
+function initialLoad(){
 // Global Variables
 const formInput = document.getElementById('input-text-field')
 const planetInfo = document.getElementById('planets-cards')
@@ -150,6 +151,9 @@ function singlePlanetsFetch(URL){
     })
     .catch(err => console.log(err))
 }
+}
+//DOMContentLoad for Planet info
+document.addEventListener("DOMContentLoaded", initialLoad())
 
 //animated background code
     const canvas = document.getElementById('starField');
@@ -211,3 +215,5 @@ function singlePlanetsFetch(URL){
     requestAnimationFrame(draw);
     }
     draw();
+
+
