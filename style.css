@@ -106,6 +106,7 @@ button {
     margin: 10px;
 }
 form {
+    color: goldenrod;
     font-size: x-large;
     font-variant: small-caps;
     font-style: oblique;
