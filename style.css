@@ -132,6 +132,6 @@ form {
 .blue-btn-mouse-over {
     transition: 0.5s;
     color: white;
-    border-color: rgb(48, 107, 255);
-    background-color: rgb(48, 107, 255);
+    border-color: blue;
+    background-color: blue;
 }
