@@ -1,3 +1,4 @@
+//Initial Load function for the DOMContentLoaded to occur
 function initialLoad(){
 // Global Variables
 const formInput = document.getElementById('input-text-field')
@@ -54,7 +55,7 @@ function displayPlanets(planets){
     planetInfo.appendChild(div)
 }
 
-// Deletes Planets from the Selected Planets area
+// Deletes Planets from the Itinerary area
 function deletePlanets(e){
     const selected = e.target.parentNode.parentNode
     selected.remove()
@@ -71,7 +72,7 @@ function addCopyOfPlanetsToSelection(thisPlanets){
     planetsClone.removeAttribute('id')
     planetsClone.querySelector('span').children[0].remove()
 
-    // Creates new span for moving button with CSS
+    // Creates new span for moving button
     const btnSpan = planetsClone.querySelector('span')
     const btn = document.createElement('button')
 
