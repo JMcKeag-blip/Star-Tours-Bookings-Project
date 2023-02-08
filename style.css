@@ -15,7 +15,7 @@ h2 {
     text-align: center;
     margin-top: 10px;
 }
-#planets-field {
+#Itinerary {
     border-bottom: 5px;
     border-top: 0;
     border-left: 0;
@@ -44,8 +44,8 @@ p {
     text-align: center;
     margin-bottom: 10px;
     margin-top: 10px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 250px;
+    margin-right: 250px;
 }
 h4 {
     font-variant: small-caps;
@@ -103,11 +103,10 @@ button {
 }
 form {
     color: goldenrod;
+    font-family: 'Death Star';
     font-size: x-large;
     font-variant: small-caps;
-    font-style: oblique;
     text-align: center;
-    box-sizing: border-box;
     border-top-width: 5px;
     border-bottom-width: 5px;
     border-left-width: 0px;
@@ -116,7 +115,7 @@ form {
     padding-bottom: 10px;
 }
 #input-text-field {
-    width: 50%;
+    width: 25%;
 }
 .red-btn-mouse-over {
     transition: 1s;

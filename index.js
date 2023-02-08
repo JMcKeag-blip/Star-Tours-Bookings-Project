@@ -4,13 +4,12 @@ const formInput = document.getElementById('input-text-field')
 const planetInfo = document.getElementById('planets-cards')
 const form = document.getElementById('search-form')
 
-// Page initial Fetch for loading Planet Cards
+// Page initial Fetch
 initialPlanetsFetch()
 
 // Global Event listeners
 form.addEventListener('submit', (e) => planetsSearch(e))
 
-// CREATION FUNCTION
 // Creates all the planet cards based off of information from the initial fetch request
 function displayPlanets(planets){
     // Planets Name
@@ -54,19 +53,17 @@ function displayPlanets(planets){
     const planetInfo = document.getElementById("planet-info")
     planetInfo.appendChild(div)
 }
-// END OF CREATION FUNCTION
 
-// Functions
 // Deletes Planets from the Selected Planets area
 function deletePlanets(e){
     const selected = e.target.parentNode.parentNode
     selected.remove()
 }
 
-// Adds a copy of the selected palnets to the Selected Planets Area
-// Also adds the Event Listeners for the Remove Monster button
+// Adds a copy of the selected planets to the Itinerary
+// Event Listeners for the Remove Planet button
 function addCopyOfPlanetsToSelection(thisPlanets){
-    const newLocation = document.getElementById('planets-field')
+    const newLocation = document.getElementById('Itinerary')
     const planetsClone = thisPlanets.target.parentNode.parentNode.cloneNode(true)
 
     // Adding Class, Removing id, Removing Add Button
@@ -85,15 +82,13 @@ function addCopyOfPlanetsToSelection(thisPlanets){
     btn.addEventListener('mouseover', (e) => changeColor(e))
     btn.addEventListener('mouseleave', (e) => changeColorBack(e))
 
-    // Appending
+    // Append
     btnSpan.append(btn)
     planetsClone.append(btnSpan)
     newLocation.appendChild(planetsClone)
 }
 
 // Functions for mouseover & mouseleave Event Listeners
-// Changes the colors of the buttons when the mouse is over
-// Changes the colors of the buttons back when mouse leaves
 function changeColor(btn){
     if(btn.target.className === 'remove-btn'){
         btn.target.classList.toggle('red-btn-mouse-over')
@@ -111,7 +106,7 @@ function changeColorBack(btn){
     }
 }
 
-// Planets Search Function, Allows for Name search, Search by letter, And Clears to show all Planet Cards
+// Planets Search Function
     function planetsSearch(e){
         e.preventDefault()
         const planetsHeader = document.getElementById('planet-info').querySelectorAll('div')
