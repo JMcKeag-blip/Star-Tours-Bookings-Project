@@ -2,7 +2,7 @@
 function initialLoad(){
 // Global Variables
 const formInput = document.getElementById('input-text-field')
-const planetInfo = document.getElementById('planets-cards')
+const planetInfo = document.getElementById('planet-info')
 const form = document.getElementById('search-form')
 
 // Page initial Fetch
@@ -34,24 +34,25 @@ function displayPlanets(planets){
     h4.innerText = 'Surface Water Percentage: ' + planets.surface_water
 
     // Button Span
-    const btnSpan2 = document.createElement('span')
-    btnSpan2.classList = `${planets.name} buttons`
+    const addBtnSpan = document.createElement('span')
+    addBtnSpan.classList = `${planets.name} buttons`
 
     // Creates Add Button & Event Listeners
-    const btn2 = document.createElement('button')
-    btn2.innerText = 'Add Planets'
-    btn2.classList = 'add-btn'
-    btn2.addEventListener('click', (e) => addCopyOfPlanetsToSelection(e))
-    btn2.addEventListener('mouseover', (e) => changeColor(e))
-    btn2.addEventListener('mouseleave', (e) => changeColorBack(e))
-    btnSpan2.append(btn2)
+    const addBtn = document.createElement('button')
+    addBtn.innerText = 'Add Planets'
+    addBtn.classList = 'add-btn'
+    addBtn.addEventListener('click', (e) => addCopyOfPlanetsToSelection(e), {once:true})
+    addBtn.addEventListener('mouseover', (e) => changeColor(e))
+    addBtn.addEventListener('mouseleave', (e) => changeColorBack(e))
+    addBtnSpan.append(addBtn)
+    
+   
 
     // Div Creation
     const div = document.createElement('div')
     div.id = `${planets.name}`
 
-    div.append(h2, h4, p, p2, p3, btnSpan2)
-    const planetInfo = document.getElementById("planet-info")
+    div.append(h2, h4, p, p2, p3, addBtnSpan)
     planetInfo.appendChild(div)
 }
 
@@ -73,19 +74,19 @@ function addCopyOfPlanetsToSelection(thisPlanets){
     planetsClone.querySelector('span').children[0].remove()
 
     // Creates new span for moving button
-    const btnSpan = planetsClone.querySelector('span')
-    const btn = document.createElement('button')
+    const removeBtnSpan = planetsClone.querySelector('span')
+    const removeBtn = document.createElement('button')
 
     // Creates Remove Button & Event Listeners
-    btn.innerText = 'Remove Planets'
-    btn.className = 'remove-btn'
-    btn.addEventListener('click', (e) => deletePlanets(e))
-    btn.addEventListener('mouseover', (e) => changeColor(e))
-    btn.addEventListener('mouseleave', (e) => changeColorBack(e))
+    removeBtn.innerText = 'Remove Planets'
+    removeBtn.className = 'remove-btn'
+    removeBtn.addEventListener('click', (e) => deletePlanets(e))
+    removeBtn.addEventListener('mouseover', (e) => changeColor(e))
+    removeBtn.addEventListener('mouseleave', (e) => changeColorBack(e))
 
     // Append
-    btnSpan.append(btn)
-    planetsClone.append(btnSpan)
+    removeBtnSpan.append(removeBtn)
+    planetsClone.append(removeBtnSpan)
     newLocation.appendChild(planetsClone)
 }
 
