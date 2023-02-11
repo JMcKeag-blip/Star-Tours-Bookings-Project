@@ -30,6 +30,3 @@ My API was found online here is its main page: https://swapi.dev/api
 Code for the animated background featured on the webpage was found here: author Ashikpaul on cssscript.com and a direct link: (https://www.cssscript.com/animated-starfield-effect/)
 This was the baseline code used as a jumping off point to customize and implement my own starfield effect. You will notice a few differences between my own code and the cited code as it was edited to fit my needs.
 Reference for the character set used in the title font can be found here: https://www.cdnfonts.com/death-star.font
-
-Project Status
-This is the End of Phase 1 project for Flatirons School. For now there will be minor updates. There may be a portion of time before I come back and continue adding additional features such as a filter function.
