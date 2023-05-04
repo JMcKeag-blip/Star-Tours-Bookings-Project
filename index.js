@@ -1,43 +1,43 @@
-//Initial Load function for the DOMContentLoaded to occur
+
 function initialLoad(){
-// Global Variables
+
 const formInput = document.getElementById('input-text-field')
 const planetInfo = document.getElementById('planet-info')
 const form = document.getElementById('search-form')
 
-// Page initial Fetch
+
 initialPlanetsFetch()
 
-// Global Event listeners
-form.addEventListener('submit', (e) => planetsSearch(e))
 
-// Creates all the planet cards based off of information from the initial fetch request
+form.addEventListener('submit',planetsSearch)
+
+
 function displayPlanets(planets){
-    // Planets Name
+    
     const h2 = document.createElement('h2')
     h2.innerText = planets.name
 
-     // Planets Climate
+     
      const p = document.createElement('h4')
      p.innerText = 'Climate: ' + planets.climate
  
-     // Population Size
+     
      const p2 = document.createElement('h4')
      p2.innerText = 'Population: ' + planets.population
  
-     // Planets Terrain Type
+     
      const p3 = document.createElement('h4')
      p3.innerText = 'Terrain: ' + planets.terrain
 
-     // Planets Surface Water as a percentage (need good beaches for a good vacation)
+     
     const h4 = document.createElement('h4')
     h4.innerText = 'Surface Water Percentage: ' + planets.surface_water
 
-    // Button Span
+   
     const addBtnSpan = document.createElement('span')
     addBtnSpan.classList = `${planets.name} buttons`
 
-    // Creates Add Button & Event Listeners
+    
     const addBtn = document.createElement('button')
     addBtn.innerText = 'Add Planets'
     addBtn.classList = 'add-btn'
@@ -48,7 +48,7 @@ function displayPlanets(planets){
     
    
 
-    // Div Creation
+    
     const div = document.createElement('div')
     div.id = `${planets.name}`
 
@@ -56,41 +56,40 @@ function displayPlanets(planets){
     planetInfo.appendChild(div)
 }
 
-// Deletes Planets from the Itinerary area
+
 function deletePlanets(e){
     const selected = e.target.parentNode.parentNode
     selected.remove()
 }
 
-// Adds a copy of the selected planets to the Itinerary
-// Event Listeners for the Remove Planet button
+
 function addCopyOfPlanetsToSelection(thisPlanets){
     const newLocation = document.getElementById('Itinerary')
     const planetsClone = thisPlanets.target.parentNode.parentNode.cloneNode(true)
 
-    // Adding Class, Removing id, Removing Add Button
+    
     planetsClone.classList.add('selected-planets')
     planetsClone.removeAttribute('id')
     planetsClone.querySelector('span').children[0].remove()
 
-    // Creates new span for moving button
+    
     const removeBtnSpan = planetsClone.querySelector('span')
     const removeBtn = document.createElement('button')
 
-    // Creates Remove Button & Event Listeners
+    
     removeBtn.innerText = 'Remove Planets'
     removeBtn.className = 'remove-btn'
     removeBtn.addEventListener('click', (e) => deletePlanets(e))
     removeBtn.addEventListener('mouseover', (e) => changeColor(e))
     removeBtn.addEventListener('mouseleave', (e) => changeColorBack(e))
 
-    // Append
+    
     removeBtnSpan.append(removeBtn)
     planetsClone.append(removeBtnSpan)
     newLocation.appendChild(planetsClone)
 }
 
-// Functions for mouseover & mouseleave Event Listeners
+
 function changeColor(btn){
     if(btn.target.className === 'remove-btn'){
         btn.target.classList.toggle('red-btn-mouse-over')
@@ -108,32 +107,33 @@ function changeColorBack(btn){
     }
 }
 
-// Planets Search Function
+
     function planetsSearch(e){
         e.preventDefault()
         const planetsHeader = document.getElementById('planet-info').querySelectorAll('div')
-        planetsHeader.forEach(planets => {
+        planetsHeader.forEach(planet => {
             const input = formInput.value.toUpperCase()
             if(input === ''){
-                planets.hidden = false
+                planet.hidden = false
             }
             if(input.length === 1){
-                input !== planets.id.charAt(0) ? planets.hidden = true: planets.hidden = false
+                input !== planet.id.charAt(0) ? planet.hidden = true: planet.hidden = false
             }
             if(input.length > 1){
-                input !== planets.id.toUpperCase() ? planets.hidden = true : planets.hidden = false
+                input !== planet.id.toUpperCase() ? planet.hidden = true : planet.hidden = false
+        
             }
         })
     }
 
-// Fetch Functions For getting all the API Information for the planets
+
 function initialPlanetsFetch(){
-    return fetch('https://swapi.dev/api/planets/')
+     fetch('https://swapi.dev/api/planets/')
     .then(resp => resp.json())
     .then(data => {
         const planetsArray = data.results
-        planetsArray.forEach(planets => {
-            singlePlanetsFetch(planets.url)
+        planetsArray.forEach(planet => {
+            singlePlanetsFetch(planet.url)
         })
     })
     .catch(err => console.log(err))
@@ -149,8 +149,8 @@ function singlePlanetsFetch(URL){
     .catch(err => console.log(err))
 }
 }
-//DOMContentLoad for Planet info
-document.addEventListener("DOMContentLoaded", initialLoad())
+
+document.addEventListener("DOMContentLoaded",initialLoad)
 
 //animated background code
     const canvas = document.getElementById('starField');
@@ -160,15 +160,15 @@ document.addEventListener("DOMContentLoaded", initialLoad())
 
     class Star {
     constructor() {
-        //initializing
-        this.x = Math.random()*canvas.width-canvas.width/2;  //random x
-        this.y = Math.random()*canvas.height-canvas.height/2; //random y
+        
+        this.x = Math.random()*canvas.width-canvas.width/2;  
+        this.y = Math.random()*canvas.height-canvas.height/2; 
         this.px, this.py;
-        this.z = Math.random()*4; //random z    
+        this.z = Math.random()*4;     
     }
     
     update() {
-        //stores previous x, y and z and generates new coordinates    
+           
         this.px = this.x;
         this.py = this.y;
         this.z += speed;
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", initialLoad())
         }
     }
     
-    //draws line from x,y to px,py
+    
     show() {    
         c.lineWidth = this.z;
         c.beginPath();
@@ -195,22 +195,21 @@ document.addEventListener("DOMContentLoaded", initialLoad())
     }
     let speed = 0.04;
     let stars = [];
-    //create 250 stars (objects)
+    
     for (let i = 0; i < 250; i++) stars.push(new Star());
     c.fillStyle = 'rgba(0, 0, 0, 0.1)';
     c.strokeStyle = 'rgb(255,255,255)' ;
     c.translate(canvas.width/2, canvas.height/2);
     function draw() {
-    //create rectangle
+    
     c.fillRect(-canvas.width/2, -canvas.height/2, 
     canvas.width, canvas.height);
     for (let s of stars) {
         s.update();
         s.show();
     }
-    //infinte call to draw
+    
     requestAnimationFrame(draw);
     }
     draw();
-
 
